@@ -23,9 +23,10 @@ const ProjectCard: FC<Props> = ({
   tags,
 }) => (
   <S.Card>
-    <S.Cover src={cover}>
-      <S.Logo src={logo} />
-    </S.Cover>
+    <S.Header>
+      <S.Cover url={cover} aria-label="Cover photo of the project" />
+      <S.Logo url={logo} aria-label="Logo of the project" />
+    </S.Header>
     <S.Content>
       <S.Title>{title}</S.Title>
       <S.TagList>
