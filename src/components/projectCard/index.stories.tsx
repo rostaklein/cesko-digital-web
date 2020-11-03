@@ -10,40 +10,28 @@ const story: Meta = {
   argTypes: {
     title: {
       defaultValue: 'Project name',
-      control: {
-        type: 'text',
-      },
+      control: 'text',
     },
     description: {
       defaultValue:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      control: {
-        type: 'text',
-      },
+      control: 'text',
     },
     cover: {
       defaultValue: 'https://via.placeholder.com/400x200',
-      control: {
-        type: 'text',
-      },
+      control: 'text',
     },
     logo: {
       defaultValue: 'https://via.placeholder.com/100',
-      control: {
-        type: 'text',
-      },
+      control: 'text',
     },
     link: {
       defaultValue: '#',
-      control: {
-        type: 'text',
-      },
+      control: 'text',
     },
     tags: {
       defaultValue: ['#javascript'],
-      control: {
-        type: 'array',
-      },
+      control: 'array',
     },
   },
 }
