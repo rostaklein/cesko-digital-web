@@ -7,6 +7,7 @@ export const decorators = [
   (Story) => (
     <ThemeProvider theme={defaultTheme}>
       <Story />
+      <GlobalStyle />
     </ThemeProvider>
   ),
 ]
