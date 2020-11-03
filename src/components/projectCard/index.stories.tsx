@@ -9,11 +9,9 @@ const story: Meta = {
   component: ProjectCard,
 }
 
-const Template: Story<ComponentProps<typeof ProjectCard>> = (args) => (
+export const Default: Story<ComponentProps<typeof ProjectCard>> = (args) => (
   <ProjectCard {...args} />
 )
-
-export const Default = Template.bind({})
 Default.args = {
   title: 'Project name',
   description:
