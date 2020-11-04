@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import * as S from './styled'
+import * as S from './styles'
 
 // Dummy
 const Link = styled.a``
