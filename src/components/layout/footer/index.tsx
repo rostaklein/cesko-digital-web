@@ -67,6 +67,23 @@ const Footer: React.FC = () => {
               </S.Navigation>
             </S.InfoBlock>
           </S.Info>
+          <S.Newsletter>
+            <S.Heading>{t.headings.newsletter}</S.Heading>
+            <S.NewsletterInfo>{t.newsletter.note}</S.NewsletterInfo>
+            <S.NewsletterForm>
+              <S.NewsletterFormControl>
+                <S.NewsletterInput
+                  name="email"
+                  type="email"
+                  placeholder={t.newsletter.inputPlaceholder}
+                />
+              </S.NewsletterFormControl>
+              <S.NewsletterButton>{t.newsletter.subscribe}</S.NewsletterButton>
+              <S.NewsletterInputErrMessage className={'is-visible'}>
+                {t.newsletter.inputErr}
+              </S.NewsletterInputErrMessage>
+            </S.NewsletterForm>
+          </S.Newsletter>
           <S.Note>{t.footnote}</S.Note>
         </S.Container>
       </S.Outer>
