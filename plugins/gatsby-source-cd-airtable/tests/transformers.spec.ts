@@ -1,34 +1,85 @@
-import { transformProject } from '../src/transformers'
+import { transformProjects, transformTags } from '../src/transformers'
 
 describe('transformers', () => {
-  describe('transformProject', () => {
+  describe('transformProjects', () => {
     test('should transform project without tagline', () => {
-      expect(
-        transformProject({
+      const csName = 'Projekt'
+      const enName = 'Project'
+      const csTagline = 'Ahoj světe'
+      const enTagline = 'Hello World'
+      const coverUrl = 'cover'
+      const logoUrl = 'logo'
+      const csSlug = 'projekt'
+      const enSlug = 'project'
+      const highlighted = false
+      const tags = ['rowId']
+      const projects = transformProjects([
+        {
           id: 'id',
           fields: {
-            Name: 'name',
+            csName,
+            enName,
+            csTagline,
+            enTagline,
+            coverUrl,
+            highlighted,
+            tags,
+            logoUrl,
+            csSlug,
+            enSlug,
           },
-        })
-      ).toEqual({
-        originalId: 'id',
-        name: 'name',
-        tagline: null,
+        },
+      ])
+      expect(projects).toContainEqual({
+        lang: 'en',
+        name: enName,
+        tagline: enTagline,
+        tags,
+        highlighted,
+        logoUrl,
+        coverUrl,
+        slug: enSlug,
+        rowId: 'id',
+      })
+      expect(projects).toContainEqual({
+        lang: 'cs',
+        name: csName,
+        tagline: csTagline,
+        tags,
+        highlighted,
+        logoUrl,
+        coverUrl,
+        slug: csSlug,
+        rowId: 'id',
       })
     })
     test('should transform project with tagline', () => {
-      expect(
-        transformProject({
+      const csName = 'Aplikace'
+      const enName = 'Applications'
+      const csSlug = 'aplikace'
+      const enSlug = 'applications'
+      const tags = transformTags([
+        {
           id: 'id',
           fields: {
-            Name: 'name',
-            'Tagline CS': 'tagline',
+            csName,
+            enName,
+            csSlug,
+            enSlug,
           },
-        })
-      ).toEqual({
-        originalId: 'id',
-        name: 'name',
-        tagline: 'tagline',
+        },
+      ])
+      expect(tags).toContainEqual({
+        lang: 'cs',
+        name: csName,
+        slug: csSlug,
+        rowId: 'id',
+      })
+      expect(tags).toContainEqual({
+        lang: 'en',
+        name: enName,
+        slug: enSlug,
+        rowId: 'id',
       })
     })
   })
